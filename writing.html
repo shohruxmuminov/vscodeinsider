@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - IELTS Preparation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 IELTS Preparation Pro</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="admin-panel.html">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="module-header">
+            <h2>✍️ Writing Module</h2>
+            <p>Master writing techniques and improve your essays</p>
+        </section>
+
+        <section class="writing-tips">
+            <h3>Writing Tips</h3>
+            <ul>
+                <li>Plan your essay before writing</li>
+                <li>Use appropriate vocabulary and grammar</li>
+                <li>Write clearly and concisely</li>
+                <li>Proofread before submitting</li>
+                <li>Use connectors and linking words effectively</li>
+            </ul>
+        </section>
+
+        <section class="materials-section">
+            <div id="materials-list" class="materials-grid">
+                <p class="loading">Loading materials...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IELTS Preparation Platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function loadMaterials() {
+            try {
+                const response = await fetch('/api/materials/writing');
+                const data = await response.json();
+                
+                const materialsList = document.getElementById('materials-list');
+                materialsList.innerHTML = '';
+                
+                if (!data.success || data.materials.length === 0) {
+                    materialsList.innerHTML = '<p class="no-materials">No writing materials available yet.</p>';
+                    return;
+                }
+                
+                data.materials.forEach(material => {
+                    const card = document.createElement('div');
+                    card.className = 'material-card';
+                    card.innerHTML = `
+                        <h3>${material.title}</h3>
+                        <p>${material.filename}</p>
+                        <p class="uploaded-date">Uploaded: ${new Date(material.uploadedAt).toLocaleDateString()}</p>
+                        <a href="/api/file/writing/${material.id}" target="_blank" class="btn btn-secondary">Open Material</a>
+                    `;
+                    materialsList.appendChild(card);
+                });
+            } catch (error) {
+                document.getElementById('materials-list').innerHTML = '<p class="error">Error loading materials.</p>';
+            }
+        }
+        
+        loadMaterials();
+    </script>
+</body>
+</html>

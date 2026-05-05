@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking - IELTS Preparation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 IELTS Preparation Pro</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="admin-panel.html">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="module-header">
+            <h2>🎤 Speaking Module</h2>
+            <p>Build confidence for your speaking test</p>
+        </section>
+
+        <section class="speaking-tips">
+            <h3>Speaking Tips</h3>
+            <ul>
+                <li>Speak clearly and confidently</li>
+                <li>Extend your answers with examples</li>
+                <li>Use a variety of vocabulary</li>
+                <li>Maintain proper pronunciation</li>
+                <li>Listen carefully to the examiner's questions</li>
+                <li>Don't rush - take time to think</li>
+            </ul>
+        </section>
+
+        <section class="materials-section">
+            <div id="materials-list" class="materials-grid">
+                <p class="loading">Loading materials...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IELTS Preparation Platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function loadMaterials() {
+            try {
+                const response = await fetch('/api/materials/speaking');
+                const data = await response.json();
+                
+                const materialsList = document.getElementById('materials-list');
+                materialsList.innerHTML = '';
+                
+                if (!data.success || data.materials.length === 0) {
+                    materialsList.innerHTML = '<p class="no-materials">No speaking materials available yet.</p>';
+                    return;
+                }
+                
+                data.materials.forEach(material => {
+                    const card = document.createElement('div');
+                    card.className = 'material-card';
+                    card.innerHTML = `
+                        <h3>${material.title}</h3>
+                        <p>${material.filename}</p>
+                        <p class="uploaded-date">Uploaded: ${new Date(material.uploadedAt).toLocaleDateString()}</p>
+                        <a href="/api/file/speaking/${material.id}" target="_blank" class="btn btn-secondary">Open Material</a>
+                    `;
+                    materialsList.appendChild(card);
+                });
+            } catch (error) {
+                document.getElementById('materials-list').innerHTML = '<p class="error">Error loading materials.</p>';
+            }
+        }
+        
+        loadMaterials();
+    </script>
+</body>
+</html>

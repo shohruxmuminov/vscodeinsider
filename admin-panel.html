@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - IELTS Preparation</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <div id="login-container" class="admin-login">
+        <div class="login-box">
+            <h1>🔐 Admin Access</h1>
+            <p>Enter the 4-digit code to access the admin panel</p>
+            <div class="login-form">
+                <input type="password" id="admin-code" placeholder="Enter 4-digit code" maxlength="4">
+                <button onclick="verifyCode()">Login</button>
+                <p id="error-msg" class="error"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="admin-panel" class="admin-panel" style="display: none;">
+        <nav class="admin-navbar">
+            <div class="container">
+                <h1>📊 Admin Panel</h1>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('listening')">🔊 Listening</button>
+                <button class="tab-btn" onclick="switchTab('reading')">📖 Reading</button>
+                <button class="tab-btn" onclick="switchTab('writing')">✍️ Writing</button>
+                <button class="tab-btn" onclick="switchTab('speaking')">🎤 Speaking</button>
+            </div>
+
+            <div id="listening-tab" class="tab-content active">
+                <h2>Upload Listening Materials</h2>
+                <div class="upload-section">
+                    <form onsubmit="handleUpload(event, 'listening')">
+                        <div class="form-group">
+                            <label>Material Title:</label>
+                            <input type="text" id="listening-title" placeholder="e.g., Practice Test 1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Audio File (MP3, WAV, OGG):</label>
+                            <input type="file" id="listening-file" accept="audio/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-upload">Upload Audio</button>
+                        <p id="listening-status" class="status"></p>
+                    </form>
+                </div>
+
+                <div class="materials-management">
+                    <h3>Uploaded Materials</h3>
+                    <div id="listening-materials" class="materials-list">
+                        <p class="loading">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reading-tab" class="tab-content">
+                <h2>Upload Reading Materials</h2>
+                <div class="upload-section">
+                    <form onsubmit="handleUpload(event, 'reading')">
+                        <div class="form-group">
+                            <label>Material Title:</label>
+                            <input type="text" id="reading-title" placeholder="e.g., Test Material 1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>HTML File:</label>
+                            <input type="file" id="reading-file" accept=".html" required>
+                        </div>
+                        <button type="submit" class="btn btn-upload">Upload Material</button>
+                        <p id="reading-status" class="status"></p>
+                    </form>
+                </div>
+
+                <div class="materials-management">
+                    <h3>Uploaded Materials</h3>
+                    <div id="reading-materials" class="materials-list">
+                        <p class="loading">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="writing-tab" class="tab-content">
+                <h2>Upload Writing Materials</h2>
+                <div class="upload-section">
+                    <form onsubmit="handleUpload(event, 'writing')">
+                        <div class="form-group">
+                            <label>Material Title:</label>
+                            <input type="text" id="writing-title" placeholder="e.g., Writing Tips" required>
+                        </div>
+                        <div class="form-group">
+                            <label>HTML File:</label>
+                            <input type="file" id="writing-file" accept=".html" required>
+                        </div>
+                        <button type="submit" class="btn btn-upload">Upload Material</button>
+                        <p id="writing-status" class="status"></p>
+                    </form>
+                </div>
+
+                <div class="materials-management">
+                    <h3>Uploaded Materials</h3>
+                    <div id="writing-materials" class="materials-list">
+                        <p class="loading">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="speaking-tab" class="tab-content">
+                <h2>Upload Speaking Materials</h2>
+                <div class="upload-section">
+                    <form onsubmit="handleUpload(event, 'speaking')">
+                        <div class="form-group">
+                            <label>Material Title:</label>
+                            <input type="text" id="speaking-title" placeholder="e.g., Speaking Tips" required>
+                        </div>
+                        <div class="form-group">
+                            <label>HTML File:</label>
+                            <input type="file" id="speaking-file" accept=".html" required>
+                        </div>
+                        <button type="submit" class="btn btn-upload">Upload Material</button>
+                        <p id="speaking-status" class="status"></p>
+                    </form>
+                </div>
+
+                <div class="materials-management">
+                    <h3>Uploaded Materials</h3>
+                    <div id="speaking-materials" class="materials-list">
+                        <p class="loading">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

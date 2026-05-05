@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening - IELTS Preparation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🎓 IELTS Preparation Pro</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="admin-panel.html">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="module-header">
+            <h2>🔊 Listening Module</h2>
+            <p>Practice with high-quality audio materials to improve your listening skills</p>
+        </section>
+
+        <section class="materials-section">
+            <div id="materials-list" class="materials-grid">
+                <p class="loading">Loading materials...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 IELTS Preparation Platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function loadMaterials() {
+            try {
+                const response = await fetch('/api/materials/listening');
+                const data = await response.json();
+                
+                const materialsList = document.getElementById('materials-list');
+                materialsList.innerHTML = '';
+                
+                if (!data.success || data.materials.length === 0) {
+                    materialsList.innerHTML = '<p class="no-materials">No listening materials available yet.</p>';
+                    return;
+                }
+                
+                data.materials.forEach(material => {
+                    const card = document.createElement('div');
+                    card.className = 'material-card';
+                    card.innerHTML = `
+                        <h3>${material.title}</h3>
+                        <p>${material.filename}</p>
+                        <p class="uploaded-date">Uploaded: ${new Date(material.uploadedAt).toLocaleDateString()}</p>
+                        <audio controls style="width: 100%; margin-top: 10px;">
+                            <source src="/api/file/listening/${material.id}" type="${material.mimetype}">
+                            Your browser does not support the audio element.
+                        </audio>
+                    `;
+                    materialsList.appendChild(card);
+                });
+            } catch (error) {
+                document.getElementById('materials-list').innerHTML = '<p class="error">Error loading materials.</p>';
+            }
+        }
+        
+        loadMaterials();
+    </script>
+</body>
+</html>
