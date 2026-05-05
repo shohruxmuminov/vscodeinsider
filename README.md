@@ -1,6 +1,6 @@
 # 🎓 IELTS Preparation Platform
 
-A fully functional web application for IELTS CDI exam preparation with admin panel for uploading test materials and audio files.
+A fully functional web application for IELTS CDI exam preparation with an admin panel for uploading materials and audio files.
 
 ## Features
 
@@ -31,23 +31,23 @@ A fully functional web application for IELTS CDI exam preparation with admin pan
 
 ### Setup Steps
 
-1. Install Dependencies
+1. **Install Dependencies**
    ```bash
    npm install
    ```
 
-2. Start the Server
+2. **Start the Server**
    ```bash
    npm start
    ```
 
-3. Access the Application
-   - Homepage: http://localhost:3000
-   - Admin Panel: http://localhost:3000/admin-panel.html
-   - Listening: http://localhost:3000/listening.html
-   - Reading: http://localhost:3000/reading.html
-   - Writing: http://localhost:3000/writing.html
-   - Speaking: http://localhost:3000/speaking.html
+3. **Access the Application**
+   - **Homepage:** http://localhost:3000
+   - **Admin Panel:** http://localhost:3000/admin-panel.html
+   - **Listening:** http://localhost:3000/listening.html
+   - **Reading:** http://localhost:3000/reading.html
+   - **Writing:** http://localhost:3000/writing.html
+   - **Speaking:** http://localhost:3000/speaking.html
 
 ## Admin Panel Usage
 
@@ -59,24 +59,23 @@ A fully functional web application for IELTS CDI exam preparation with admin pan
 ### Upload Materials
 
 **Listening Module (Audio Files)**
-1. Click Listening tab
-2. Enter title
-3. Select audio file
-4. Click Upload Audio
+1. Click on the **Listening** tab
+2. Enter a title
+3. Select an audio file (.mp3, .wav, .ogg)
+4. Click **Upload Audio**
 
 **Reading/Writing/Speaking (HTML Files)**
-1. Click module tab
-2. Enter title
-3. Select HTML file
-4. Click Upload Material
+1. Click on the module tab
+2. Enter a title
+3. Select an HTML file
+4. Click **Upload Material**
 
 ## Technology Stack
 
-- Express.js (web framework)
-- Multer (file uploads)
-- Vanilla JavaScript (frontend)
-- HTML5 & CSS3 (UI)
-- Node.js (runtime)
+- **Backend:** Node.js + Express.js
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript
+- **File Handling:** Multer middleware
+- **Storage:** In-memory (session-based)
 
 ## API Endpoints
 
@@ -86,15 +85,18 @@ A fully functional web application for IELTS CDI exam preparation with admin pan
 - `GET /api/file/:module/:id` - Download/view file
 - `DELETE /api/materials/:module/:id` - Delete material
 
-## Future Enhancements
+## Troubleshooting
 
-- Database integration
-- User authentication
-- Progress tracking
-- Quiz functionality
-- Video support
-- Mobile app
+**npm: command not found**
+→ Install Node.js from nodejs.org
 
-## Support
+**Port 3000 already in use**
+→ Edit server.js: Change PORT = 3000 to PORT = 3001
 
-For issues, check browser console (F12) for error messages.
+**Admin code doesn't work**
+→ Code is: 2010 (check for spaces)
+
+**File upload fails**
+→ Check file size, format, and title field
+
+For more help, see SETUP_GUIDE.txt

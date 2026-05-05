@@ -1,0 +1,40 @@
+🎓 IELTS PREPARATION PLATFORM - QUICK START
+============================================
+
+Get started in 3 steps!
+
+STEP 1: Install Dependencies
+----------------------------
+cd /d "c:\Users\User\Desktop\ieltspro2\vs code"
+npm install
+
+STEP 2: Start Server
+-------------------
+npm start
+
+STEP 3: Open Browser
+-------------------
+http://localhost:3000
+
+ADMIN ACCESS
+============
+Panel: http://localhost:3000/admin-panel.html
+Code: 2010
+
+MODULES
+=======
+Listening: /listening.html
+Reading:   /reading.html
+Writing:   /writing.html
+Speaking:  /speaking.html
+
+UPLOAD FILES
+============
+1. Click module tab
+2. Enter title
+3. Select file (HTML or Audio)
+4. Click Upload
+
+STOP SERVER
+===========
+Press: Ctrl + C
