@@ -1,40 +1,105 @@
-🎓 IELTS PREPARATION PLATFORM - QUICK START
-============================================
+IELTS PREPARATION PLATFORM - QUICK START GUIDE
+================================================
 
-Get started in 3 steps!
+STEP 1: OPEN COMMAND PROMPT
+--------------------------
+1. Press: Windows Key + R
+2. Type: cmd
+3. Press: Enter
 
-STEP 1: Install Dependencies
-----------------------------
+STEP 2: NAVIGATE TO PROJECT
+---------------------------
+Copy and paste this into Command Prompt:
 cd /d "c:\Users\User\Desktop\ieltspro2\vs code"
+
+STEP 3: INSTALL DEPENDENCIES
+----------------------------
+Copy and paste this into Command Prompt:
 npm install
 
-STEP 2: Start Server
--------------------
+This will take 1-3 minutes. Wait for it to complete.
+
+STEP 4: START THE SERVER
+------------------------
+Copy and paste this into Command Prompt:
 npm start
 
-STEP 3: Open Browser
--------------------
+You should see:
+"IELTS Preparation Platform running on http://localhost:3000"
+
+STEP 5: OPEN IN BROWSER
+-----------------------
+Open your web browser and go to:
 http://localhost:3000
 
-ADMIN ACCESS
-============
-Panel: http://localhost:3000/admin-panel.html
-Code: 2010
+STEP 6: ACCESS ADMIN PANEL
+--------------------------
+1. Click "Admin Panel" in the navigation
+2. Or go directly to: http://localhost:3000/admin-panel.html
+3. Enter code: 2010
+4. Click Login
 
-MODULES
-=======
-Listening: /listening.html
-Reading:   /reading.html
-Writing:   /writing.html
-Speaking:  /speaking.html
-
-UPLOAD FILES
-============
-1. Click module tab
-2. Enter title
-3. Select file (HTML or Audio)
+STEP 7: UPLOAD MATERIALS
+------------------------
+1. Select a module tab (Listening, Reading, Writing, Speaking)
+2. Enter a title
+3. Select a file:
+   - For Listening: audio files (MP3, WAV, OGG)
+   - For Reading/Writing/Speaking: HTML files
 4. Click Upload
 
-STOP SERVER
-===========
-Press: Ctrl + C
+STEP 8: BROWSE MATERIALS AS STUDENT
+-----------------------------------
+1. Go back to homepage (click logo)
+2. Click on any module
+3. View uploaded materials
+4. For audio: use the built-in player
+
+TO STOP THE SERVER
+-------------------
+Press: Ctrl + C in Command Prompt
+
+TROUBLESHOOTING
+---------------
+
+Q: "npm: command not found"
+A: Node.js is not installed. Download from nodejs.org
+
+Q: "Port 3000 is already in use"
+A: Another program is using port 3000
+   - Close other servers
+   - Or edit server.js: Change PORT = 3000 to PORT = 3001
+
+Q: "Audio files won't play"
+A: - Check file format (MP3 is most compatible)
+   - Try a different browser
+   - Check browser console (F12) for errors
+
+Q: "Admin code doesn't work"
+A: Verify the code is: 2010 (not 2020 or other)
+
+FILES CREATED
+-----------
+server.js              - Main server file
+package.json           - Dependencies list
+index.html             - Homepage
+listening.html         - Listening module
+reading.html           - Reading module  
+writing.html           - Writing module
+speaking.html          - Speaking module
+admin-panel.html       - Admin interface
+style.css              - Main styling
+admin-style.css        - Admin styling
+script.js              - Main JavaScript
+admin-script.js        - Admin JavaScript
+start.bat              - Shortcut to start server
+README.md              - Full documentation
+
+PROJECT COMPLETE! ✅
+-------------------
+You now have a fully functional IELTS preparation website with:
+✅ Student interface to access materials
+✅ Admin panel to upload files
+✅ Audio player for listening
+✅ Material management
+✅ Professional, responsive design

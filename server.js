@@ -10,7 +10,13 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(''));
+// Serve the project files (html/css/js) directly from this folder.
+app.use(express.static(__dirname));
+
+// Serve homepage at `/`.
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Configure multer for file uploads
 const storage = multer.memoryStorage();

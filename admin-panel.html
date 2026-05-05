@@ -29,12 +29,13 @@
 
         <div class="admin-container">
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('listening')">🔊 Listening</button>
-                <button class="tab-btn" onclick="switchTab('reading')">📖 Reading</button>
-                <button class="tab-btn" onclick="switchTab('writing')">✍️ Writing</button>
-                <button class="tab-btn" onclick="switchTab('speaking')">🎤 Speaking</button>
+                <button class="tab-btn active" onclick="switchTab('listening', this)">🔊 Listening</button>
+                <button class="tab-btn" onclick="switchTab('reading', this)">📖 Reading</button>
+                <button class="tab-btn" onclick="switchTab('writing', this)">✍️ Writing</button>
+                <button class="tab-btn" onclick="switchTab('speaking', this)">🎤 Speaking</button>
             </div>
 
+            <!-- Listening Tab -->
             <div id="listening-tab" class="tab-content active">
                 <h2>Upload Listening Materials</h2>
                 <div class="upload-section">
@@ -60,6 +61,7 @@
                 </div>
             </div>
 
+            <!-- Reading Tab -->
             <div id="reading-tab" class="tab-content">
                 <h2>Upload Reading Materials</h2>
                 <div class="upload-section">
@@ -85,6 +87,7 @@
                 </div>
             </div>
 
+            <!-- Writing Tab -->
             <div id="writing-tab" class="tab-content">
                 <h2>Upload Writing Materials</h2>
                 <div class="upload-section">
@@ -110,6 +113,7 @@
                 </div>
             </div>
 
+            <!-- Speaking Tab -->
             <div id="speaking-tab" class="tab-content">
                 <h2>Upload Speaking Materials</h2>
                 <div class="upload-section">

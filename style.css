@@ -105,9 +105,6 @@ main {
 .modules {
     padding: 4rem 0;
     background: #f8fafc;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
 }
 
 .module-card {
@@ -138,6 +135,13 @@ main {
 .module-card p {
     color: #64748b;
     margin-bottom: 1.5rem;
+}
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    grid-column: 1;
 }
 
 /* === BUTTONS === */

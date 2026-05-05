@@ -1,177 +1,424 @@
-IELTS PREPARATION PLATFORM - INSTALLATION GUIDE
-==================================================
+IELTS PREPARATION PLATFORM - COMPLETE INSTALLATION & USAGE GUIDE
+==================================================================
 
-OVERVIEW
---------
-Complete setup guide for installing and deploying the IELTS Preparation Platform.
+PROJECT OVERVIEW
+================
+A fully functional website for IELTS preparation with:
+✅ Four learning modules (Listening, Reading, Writing, Speaking)
+✅ Admin panel with file upload capabilities  
+✅ Audio player for listening practice
+✅ Material management system
+✅ Professional responsive design
 
 SYSTEM REQUIREMENTS
-==================
-- Windows 10/11 (or Mac/Linux)
-- Node.js v14+ (https://nodejs.org)
+===================
+- Windows 10/11 or Mac/Linux
+- Node.js v14+ (Download from nodejs.org)
 - npm (included with Node.js)
-- Modern web browser
+- Modern web browser (Chrome, Firefox, Edge, Safari)
 - ~200MB free disk space
+
+INSTALLATION STEPS
+==================
 
 STEP 1: Install Node.js
 -----------------------
-1. Go to: https://nodejs.org
-2. Download LTS (Long Term Support) version
+1. Download Node.js from: https://nodejs.org
+2. Choose LTS (Long Term Support) version
 3. Run the installer
-4. Accept all default settings
-5. Restart your computer (recommended)
-6. Verify installation:
+4. Accept default settings
+5. Verify installation:
    - Open Command Prompt
    - Type: node --version
    - You should see version number (e.g., v16.13.0)
 
 STEP 2: Navigate to Project Directory
 --------------------------------------
-1. Open Command Prompt
-2. Type: cd /d "c:\Users\User\Desktop\ieltspro2\vs code"
-3. Press Enter
+1. Open Command Prompt (Windows) or Terminal (Mac/Linux)
+2. Type the following command:
+
+   cd /d "c:\Users\User\Desktop\ieltspro2\vs code"
+
+   (Note: /d flag allows changing drives on Windows)
 
 STEP 3: Install Dependencies
-----------------------------
-1. Type: npm install
-2. Wait for installation (1-3 minutes)
-3. You should see: "added XX packages"
+-----------------------------
+1. In Command Prompt/Terminal, type:
+
+   npm install
+
+2. Wait for installation to complete (1-3 minutes)
+3. You should see "added XX packages"
 
 STEP 4: Start the Server
------------------------
-1. Type: npm start
-2. You should see: "IELTS Preparation Platform running on http://localhost:3000"
-3. Terminal will stay running (don't close it!)
+------------------------
+1. In Command Prompt/Terminal, type:
+
+   npm start
+
+2. You should see:
+   "IELTS Preparation Platform running on http://localhost:3000"
+
+3. The terminal will keep running - don't close it!
 
 STEP 5: Access the Application
 -------------------------------
-1. Open web browser
+1. Open your web browser
 2. Go to: http://localhost:3000
-3. You should see the IELTS homepage
+3. You should see the IELTS Preparation homepage
 
-CUSTOMIZATION
-=============
+USING THE APPLICATION
+======================
 
-Change Admin Code:
-- Edit: server.js
-- Find: if (code === '2010')
-- Change: '2010' to your desired code
+AS A STUDENT
+============
 
-Change Port:
-- Edit: server.js  
-- Find: const PORT = 3000
-- Change: 3000 to any number (3001, 8080, etc.)
+1. Home Page (http://localhost:3000)
+   - See 4 module cards
+   - Click any module to explore
 
-Change Colors:
-- Edit: style.css or admin-style.css
-- Modify CSS variables at top of file
-- All colors use --primary-color, --secondary-color, etc.
+2. Listening Module (http://localhost:3000/listening.html)
+   - View uploaded audio materials
+   - Click play button to listen
+   - Built-in audio player with controls
 
-DEPLOYMENT
-==========
+3. Reading Module (http://localhost:3000/reading.html)
+   - View reading materials
+   - Click "Open Material" to read
+   - Answer practice questions
 
-Local Network:
-1. Find your IP address (ipconfig in Command Prompt)
-2. Share IP with others on network
-3. They access: http://YOUR_IP:3000
+4. Writing Module (http://localhost:3000/writing.html)
+   - See writing tips section
+   - Access uploaded materials
+   - Learn writing strategies
 
-Cloud Deployment (Heroku):
-1. Create Heroku account
-2. Install Heroku CLI
-3. heroku create
-4. git push heroku main
-5. Get URL and share
+5. Speaking Module (http://localhost:3000/speaking.html)
+   - View speaking tips and guidance
+   - Access uploaded materials
+   - Improve pronunciation confidence
 
-Could Deployment (DigitalOcean):
-1. Create droplet (Ubuntu 20.04)
-2. SSH into droplet
-3. Install Node.js and npm
-4. Clone repository
-5. Run: npm install && npm start
-6. Use process manager (PM2) to keep running
-7. Set up domain name
-8. Configure SSL certificate
+AS AN ADMIN
+===========
+
+1. Access Admin Panel
+   - URL: http://localhost:3000/admin-panel.html
+   - Or click "Admin Panel" link from homepage
+
+2. Login
+   - Enter Code: 2010
+   - Click "Login"
+
+3. Upload Materials
+
+   LISTENING TAB:
+   - Title: Enter material name (e.g., "Practice Test 1")
+   - File: Select .mp3, .wav, or .ogg file
+   - Click: "Upload Audio"
+   - Status: "Upload successful! ✓"
+
+   READING TAB:
+   - Title: Enter material name (e.g., "Reading Test 1")
+   - File: Select .html file
+   - Click: "Upload Material"
+   - Students can open it to read
+
+   WRITING TAB:
+   - Title: Enter tips title (e.g., "Essay Writing Guide")
+   - File: Select .html file (sample provided: sample-writing-tips.html)
+   - Click: "Upload Material"
+
+   SPEAKING TAB:
+   - Title: Enter tips title (e.g., "Speaking Strategies")
+   - File: Select .html file
+   - Click: "Upload Material"
+
+4. Manage Materials
+   - View all uploaded materials in each tab
+   - Click "Delete" button to remove materials
+   - Confirm deletion in popup
+
+SAMPLE FILES
+============
+The following sample files are included:
+
+1. sample-reading.html
+   - IELTS reading passage with 5 questions
+   - Upload to Reading module to test
+
+2. sample-writing-tips.html
+   - Comprehensive IELTS writing tips
+   - Upload to Writing module for student reference
+
+HOW TO CREATE YOUR OWN MATERIALS
+================================
+
+Reading Materials (.html)
+--------------------------
+Create a simple HTML file with reading passage and questions:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reading Material</title>
+    <style>
+        body { font-family: Arial; line-height: 1.6; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Reading Passage</h1>
+    <p>Your reading text here...</p>
+    
+    <h2>Questions</h2>
+    <p>1. Your question here?</p>
+    <p>a) Option A</p>
+    <p>b) Option B</p>
+</body>
+</html>
+```
+
+Save as: my-reading.html
+Upload via Admin Panel → Reading tab
+
+Audio Files (Listening)
+------------------------
+- Use any standard audio file format:
+  * MP3 (recommended)
+  * WAV
+  * OGG
+  * FLAC
+
+No conversion needed! Just upload directly.
+
+Writing/Speaking Tips (.html)
+------------------------------
+Create professional HTML with tips, examples, and formatting.
+See sample-writing-tips.html for example.
 
 TROUBLESHOOTING
 ===============
 
-Problem: npm not found
-Solution: Node.js not installed. Download from nodejs.org
+Issue: "npm: command not found"
+Solution: Node.js not installed. Download from nodejs.org and install.
 
-Problem: Port 3000 in use
+Issue: "Port 3000 is already in use"
 Solution: 
-  - Find what's using port 3000: netstat -ano | findstr :3000
-  - Kill process: taskkill /PID <PID> /F
-  - Or change port in server.js
+  - Another program is using port 3000
+  - Option 1: Close other servers
+  - Option 2: Edit server.js, change PORT = 3000 to PORT = 3001
 
-Problem: Cannot find module 'express'
-Solution: Run: npm install
+Issue: "Cannot find module 'express'"
+Solution: Run "npm install" again in the project directory
 
-Problem: Server starts but browser shows error
+Issue: Server starts but browser shows error
 Solution:
-  - Refresh page (Ctrl+R)
-  - Check console (F12)
-  - Use http:// not https://
+  - Refresh the page (Ctrl+R or Cmd+R)
+  - Check console (F12) for errors
+  - Verify http://localhost:3000 (not https)
 
-Problem: Admin code doesn't work
-Solution: Default code is 2010 - check for typos
+Issue: Admin code doesn't work
+Solution: Default code is "2010" - check for typos
 
-Problem: File upload fails
+Issue: File uploads fail
 Solution:
-  - File size under 100MB?
-  - File format correct (HTML, MP3, WAV, OGG)?
-  - Title entered?
-  - Check browser console (F12)
+  - Check file size (keep under 100MB)
+  - Verify file format (HTML for text, MP3/WAV/OGG for audio)
+  - Ensure title field is not empty
+  - Check browser console (F12) for error messages
 
-Problem: Audio player shows but no sound
+Issue: Audio player shows but no sound
 Solution:
-  - Try MP3 format (most compatible)
+  - Verify audio file is valid (try opening in media player)
   - Try different browser
-  - Check volume settings
-  - Verify audio file is valid
+  - Check browser volume settings
+  - MP3 format recommended
 
-Problem: HTML materials don't display
+Issue: HTML materials don't display correctly
 Solution:
   - Create simple HTML without external resources
-  - Use inline CSS
-  - Test HTML locally first
-  - Avoid external scripts
+  - Use inline CSS (put <style> in <head>)
+  - Test HTML file locally first before uploading
 
 STOPPING THE SERVER
 ===================
-In Command Prompt:
-Press: Ctrl + C
-Type: Y (if prompted)
-Press: Enter
+
+To stop the server:
+1. Go to Command Prompt/Terminal
+2. Press: Ctrl + C
+3. Type: Y (if prompted)
+4. Press: Enter
+
+The server will stop and you'll see the prompt again.
+
+PROJECT STRUCTURE
+=================
+
+Files created:
+
+Backend:
+- server.js              → Express server (file uploads, APIs)
+- package.json          → Project dependencies
+- node_modules/         → Installed packages (auto-created)
+
+Frontend Pages:
+- index.html            → Homepage with module cards
+- listening.html        → Listening module page
+- reading.html          → Reading module page
+- writing.html          → Writing module page  
+- speaking.html         → Speaking module page
+- admin-panel.html      → Admin interface
+
+Styling:
+- style.css             → Main site styling
+- admin-style.css       → Admin panel styling
+
+JavaScript:
+- script.js             → Main site scripts
+- admin-script.js       → Admin panel scripts
+
+Documentation:
+- README.md             → Full documentation
+- QUICK_START.txt       → Quick reference
+- SETUP_GUIDE.txt       → This file
+
+Sample Materials:
+- sample-reading.html        → Example reading material
+- sample-writing-tips.html   → Example writing tips
+
+Batch Files:
+- start.bat             → Batch file to start server
+
+ADMIN CODE
+==========
+Default Code: 2010
+
+This code grants access to the admin panel. Change it in server.js 
+if you want to use a different code (line: if (code === '2010'))
+
+API ENDPOINTS (For Developers)
+==============================
+
+Authentication:
+POST /api/admin/login
+Body: { "code": "2010" }
+
+Upload File:
+POST /api/upload/:module
+Headers: multipart/form-data
+Fields: title, file
+Modules: listening, reading, writing, speaking
+
+Get Materials:
+GET /api/materials/:module
+Returns: { success, materials[] }
+
+Get File:
+GET /api/file/:module/:id
+Returns: File download/stream
+
+Delete Material:
+DELETE /api/materials/:module/:id
+Returns: { success, message }
 
 ADVANCED FEATURES
 =================
 
+Changing Port Number:
+- Edit server.js
+- Find: const PORT = 3000;
+- Change to: const PORT = 3001; (or any number 3000-9999)
+
 Database Integration:
-1. Install MongoDB
-2. Update server.js to use MongoDB
-3. Replace in-memory storage with database
-4. Implement user authentication
-5. Add progress tracking
+- Currently uses in-memory storage (resets when server stops)
+- To make persistent: integrate MongoDB or MySQL
+- Contact for database setup assistance
 
-User Authentication:
-1. Install bcryptjs for password hashing
-2. Create user model
-3. Implement login/signup
-4. Add session management
-5. Restrict admin access to authenticated users
+Custom Styling:
+- Edit style.css for main site
+- Edit admin-style.css for admin panel
+- All colors use CSS variables (customizable)
 
-Progress Tracking:
-1. Add database for storing progress
-2. Track completed materials
-3. Show completion percentage
-4. Generate certificates
-5. Email notifications
+PRODUCTION DEPLOYMENT
+=====================
 
-SUPPORT
-=======
-For detailed help, see:
-- README.md - Technical documentation
-- QUICK_START.txt - Quick reference
-- Browser console (F12) - Error messages
-- Server console output - Detailed logs
+For live deployment:
+1. Set up Node.js hosting (Heroku, DigitalOcean, AWS, etc.)
+2. Use a reverse proxy (Nginx)
+3. Set up SSL certificate (HTTPS)
+4. Implement persistent database
+5. Use environment variables for secrets
+6. Set up automated backups
+7. Monitor server performance
+
+GETTING HELP
+============
+
+Common Resources:
+- Node.js Docs: https://nodejs.org/docs
+- Express.js Docs: https://expressjs.com
+- Multer (uploads): https://github.com/expressjs/multer
+
+Check Browser Console:
+1. Press F12 in browser
+2. Click Console tab
+3. Look for error messages
+4. Copy errors and search online
+
+Check Server Console:
+- Look at Command Prompt/Terminal output
+- Error messages appear there
+- Scroll up to see full error
+
+NEXT STEPS
+==========
+
+After Installation:
+1. ✓ Start the server
+2. ✓ Open http://localhost:3000
+3. ✓ Go to Admin Panel
+4. ✓ Login with code: 2010
+5. ✓ Upload sample materials
+6. ✓ Test each module
+7. ✓ Browse as student
+
+Enhancement Ideas:
+- Add more sample materials
+- Customize colors and logos
+- Add quiz functionality
+- Implement user accounts
+- Add progress tracking
+- Create mobile app
+
+SUCCESS INDICATORS
+==================
+
+You're all set when:
+✓ Server shows "running on http://localhost:3000"
+✓ Homepage loads in browser
+✓ Can access all 4 modules
+✓ Can login to admin panel with code 2010
+✓ Can upload files successfully
+✓ Uploaded materials appear in student view
+✓ Audio files play correctly
+✓ HTML materials display properly
+
+SUPPORT & FEEDBACK
+==================
+
+If you encounter issues:
+1. Check the troubleshooting section above
+2. Review browser console (F12)
+3. Review server console output
+4. Try clearing browser cache
+5. Restart the server
+6. Reinstall dependencies
+
+Congratulations! Your IELTS Preparation Platform is ready! 🎉
+
+For any questions or issues, refer to:
+- README.md (full documentation)
+- QUICK_START.txt (quick reference)
+- Browser console (F12 for errors)
+- Server console (error messages)
+
+Happy teaching and learning! 📚

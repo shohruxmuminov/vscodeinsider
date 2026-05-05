@@ -32,14 +32,23 @@ function logout() {
 }
 
 function switchTab(tabName) {
+    // Hide all tabs
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.classList.remove('active'));
     
+    // Remove active class from buttons
     const buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     
+    // Show selected tab
     document.getElementById(tabName + '-tab').classList.add('active');
-    event.target.classList.add('active');
+    
+    // Add active class to the clicked tab button (if provided).
+    // `onclick="switchTab('listening', this)"` passes the button element as the 2nd argument.
+    // Keeping this robust avoids relying on a global `event` object.
+    if (arguments.length > 1 && arguments[1]) {
+        arguments[1].classList.add('active');
+    }
 }
 
 async function handleUpload(event, module) {
@@ -151,6 +160,7 @@ function loadAllMaterials() {
     loadMaterials('speaking');
 }
 
+// Allow Enter key to submit login
 document.addEventListener('DOMContentLoaded', function() {
     const codeInput = document.getElementById('admin-code');
     if (codeInput) {
